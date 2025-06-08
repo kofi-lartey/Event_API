@@ -18,14 +18,7 @@ export const postEvents = async (request, response) => {
 // to patch
 export const patchEvents = async (request, response) => {
     const id = (request.params.id)
-    const event = await Events.findByIdAndUpdate(id, {
-        title: "Monday Prayers",
-        date: "2025-08-10T17:00:00.000Z",
-        rate: 210,
-        currency: "GHS",
-        dressCode: "casual",
-        type: "religious"
-    })
+    const event = await Events.findByIdAndUpdate(id, req.body, { new: true})
     response.send(event)
 }
 
