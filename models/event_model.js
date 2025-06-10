@@ -1,3 +1,4 @@
+
 import { Schema, model} from "mongoose";
 
 const eventSchema = new Schema({
@@ -14,7 +15,7 @@ const eventSchema = new Schema({
         required: true
     },
     rate:{
-        type: Number,
+        type: String,
         default: "free"
     },
     currenncy:{

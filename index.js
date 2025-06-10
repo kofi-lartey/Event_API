@@ -10,21 +10,18 @@ import 'dotenv/config'
 //assign a variable to it
 const app = express()
 
-const mongoURI= process.env.MONGO_URI
-
 // craete a port where it listens to
 const PORT = 7373
 
-app.use(express.json())
+const mongoURI= process.env.MONGO_URI
 
-app.use(eventRouter)
 await mongoose.connect(mongoURI)
 
 
 
+app.use(express.json())
 
-
-
+app.use('/api/v1/',eventRouter)
 
 
 //runs the program and if successful gives you an alert of server is up on port from the variable port
